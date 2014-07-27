@@ -29,7 +29,7 @@ class Watch < JsonWatch
 		http://nnade.herokuapp.com/*.json
 		http://everythingremindsmeofsomething.herokuapp.com/*.json
 	).each do |url|
-		watch url { JSON.parse open(url).read }
+		watch(url, notify: [:stdout, :mail]) { JSON.parse open(url).read }
 	end
 
 	notify :stdout do |watch, diff|
