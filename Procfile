@@ -1,1 +1,1 @@
-worker: bundle exec ruby watch.rb
+worker: bundle exec rake watch

@@ -12,6 +12,7 @@ GEM
     mime-types (2.3)
     nifty-cloud-sdk (1.7)
       xml-simple (>= 1.0.12)
+    rake (10.3.2)
     redis (3.1.0)
     redis-namespace (1.5.0)
       redis (~> 3.0, >= 3.0.4)
@@ -27,6 +28,7 @@ DEPENDENCIES
   json_watch
   mail
   nifty-cloud-sdk
+  rake
   redis
   redis-namespace
   redis-pool

@@ -1,5 +1,7 @@
 require 'json_watch'
 require 'redis'
+require 'redis/namespace'
+require 'redis/pool'
 require 'NIFTY'
 require 'mail'
 
@@ -57,8 +59,11 @@ class Watch < JsonWatch
 	end
 end
 
-puts "start to watch -1"
-redis = Redis::Namespace.new(:watch, redis: Redis::Pool.new(url: ENV['REDISTOGO_URL'] || 'redis://localhost:6379/15'))
-watch = Watch.new(cache: redis, sleep: 60*5)
-puts "start to watch"
-watch.start
+desc 'watch'
+task :watch do
+	puts "start to watch -1"
+	redis = Redis::Namespace.new(:watch, redis: Redis::Pool.new(url: ENV['REDISTOGO_URL'] || 'redis://localhost:6379/15'))
+	watch = Watch.new(cache: redis, sleep: 60*5)
+	puts "start to watch"
+	watch.start
+end

@@ -5,4 +5,4 @@ gem 'redis-namespace'
 gem 'redis-pool'
 gem 'nifty-cloud-sdk', require: 'NIFTY'
 gem 'mail'
-
+gem 'rake'
