@@ -33,7 +33,7 @@ class Watch < JsonWatch
 		subject = title(watch)
 		Mail.deliver do
 		  to ENV['TO_MAIL_ADDRESS']
-		  from 'tily-watch@herokuapp.com'
+		  from 'tily-json-watch@herokuapp.com'
 		  subject subject
 		  body JSON.pretty_generate(diff)
 		end
