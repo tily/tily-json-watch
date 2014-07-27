@@ -1,23 +1,24 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    connection_pool (2.0.0)
     json (1.8.1)
     json-compare (0.1.8)
     json_watch (0.0.1)
       json
       json-compare
-    mail (2.5.4)
-      mime-types (~> 1.16)
-      treetop (~> 1.4.8)
-    mime-types (1.25.1)
+    mail (2.6.1)
+      mime-types (>= 1.16, < 3)
+    mime-types (2.3)
     nifty-cloud-sdk (1.7)
       xml-simple (>= 1.0.12)
-    polyglot (0.3.5)
     redis (3.1.0)
-    treetop (1.4.15)
-      polyglot
-      polyglot (>= 0.3.1)
-    xml-simple (1.1.3)
+    redis-namespace (1.5.0)
+      redis (~> 3.0, >= 3.0.4)
+    redis-pool (0.1.1)
+      connection_pool
+      redis
+    xml-simple (1.1.4)
 
 PLATFORMS
   ruby
@@ -27,3 +28,5 @@ DEPENDENCIES
   mail
   nifty-cloud-sdk
   redis
+  redis-namespace
+  redis-pool

@@ -17,7 +17,7 @@ end
 
 class Watch < JsonWatch
 	%w(east-1 west-1).each do |region|
-		watch :"#{region} instances", notify: [:stdout, :mail], exclude: 'requestId' do
+		watch :"#{region} instances", notify: [:stdout], exclude: 'requestId' do
 			compute(region).describe_instances.to_hash
 		end
 	end
@@ -54,5 +54,6 @@ class Watch < JsonWatch
 	end
 end
 
-watch = Watch.new(cache: Redis.new, sleep: 60*5)
+redis = Redis::Namespace.new(:watch, redis: Redis::Pool.new(url: ENV['REDISTOGO_URL'] || 'redis://localhost:6379/15'))
+watch = Watch.new(cache: redis, sleep: 60*5)
 watch.start
