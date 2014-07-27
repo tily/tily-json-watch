@@ -1,3 +1,4 @@
+require 'open-uri'
 require 'json_watch'
 require 'redis'
 require 'redis/namespace'
