@@ -56,4 +56,5 @@ end
 
 redis = Redis::Namespace.new(:watch, redis: Redis::Pool.new(url: ENV['REDISTOGO_URL'] || 'redis://localhost:6379/15'))
 watch = Watch.new(cache: redis, sleep: 60*5)
+puts "start to watch"
 watch.start
