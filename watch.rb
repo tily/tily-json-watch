@@ -1,5 +1,7 @@
 require 'json_watch'
 require 'redis'
+require 'redis/namespace'
+require 'redis/pool'
 require 'NIFTY'
 require 'mail'
 
