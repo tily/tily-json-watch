@@ -24,6 +24,10 @@ class Watch < JsonWatch
 		end
 	end
 
+	watch :nnade do
+		JSON.parse open('http://nnade.herokuapp.com/*.json').read
+	end
+
 	notify :stdout do |watch, diff|
 		STDOUT.puts title(watch)
 		STDOUT.puts JSON.pretty_generate(diff)
